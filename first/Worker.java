@@ -34,7 +34,7 @@ public class Worker extends Application {
 	public void start(Stage arg0) throws Exception {
 		TabPane tabPane = new TabPane();
 		BorderPane root = new BorderPane();
-		
+
 		HBox IN_hb = new HBox();
 		HBox MANI_hb = new HBox();
 		HBox OUT_hb = new HBox();
@@ -42,7 +42,7 @@ public class Worker extends Application {
 		IN_graphic.start_IN_graphik(IN_hb);
 		MANI_graphic.start_MANI_graphik(MANI_hb);
 		OUT_graphic.start_OUT_graphik(OUT_hb);
-		
+
 		Tab tab1 = new Tab("IN");
 		Tab tab2 = new Tab("MANI");
 		Tab tab3 = new Tab("OUT");

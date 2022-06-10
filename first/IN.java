@@ -1,7 +1,5 @@
 package first;
 
-import java.util.ArrayList;
-
 import javafx.scene.control.TextArea;
 
 public class IN {
@@ -18,11 +16,16 @@ public class IN {
 		tableName = s;
 	}
 	
-	static void buttonAction(TextArea area) {
-		SQL.createPictureTable(tableName); // table wird erstellt
-		SQL.insertCustomTableTable(tableName); // name der table wird in CustomTable eingetragen
-		Worker.writeTablesOut(area); // CustomTables werden eusgelesen
-		SQL.insertIntoDB(PictureFileTree.createAndStorePictureObjects(), tableName);
+	static void buttonAction(TextArea area, TextArea output) {
+		if (SQL.checkTables(tableName)) {
+			SQL.createPictureTable(tableName); // table wird erstellt
+			SQL.insertCustomTableTable(tableName, area); // name der table wird in CustomTable eingetragen
+			Worker.writeTablesOut(area); // CustomTables werden eusgelesen
+			PictureFileTree.getAllPicturesFrom(abWo); // speichert die Pics in eine ArrayList
+			SQL.insertIntoDB(PictureFileTree.createAndStorePictureObjects(), tableName); // insertiert die Pics in die DB
+		} else {
+			output.setText("Der gewählte Tablename wird bereits verwendet.");
+		}
 	}
 	
 }

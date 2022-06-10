@@ -71,7 +71,7 @@ public class IN_graphic {
 			if (x && y) {
 				IN.setAbWo(abWo_area.getText());
 				IN.setTableName(tableName_area.getText());
-				IN.buttonAction(tables2);
+				IN.buttonAction(tables2, output2);
 			}
 		});
 		

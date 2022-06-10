@@ -1,8 +1,9 @@
 package first;
 
 import java.sql.*;
-import java.sql.Date;
 import java.util.ArrayList;
+
+import javafx.scene.control.TextArea;
 
 public class SQL {
 	private static Connection c;
@@ -28,7 +29,6 @@ public class SQL {
 			e.printStackTrace();
 			System.out.println("Set Auto Commit didn't work!");
 		}
-
 	}
 
 	public static void createPictureTable(String tableName) {
@@ -45,12 +45,12 @@ public class SQL {
 		}
 	}
 
-	public static void insertCustomTableTable(String tableName) {
+	public static void insertCustomTableTable(String tableName, TextArea area) {
 		try {
-			Statement stmt = c.createStatement();
-			String sql = "insert into CustomTables (name) values (\"" + tableName  + "\");";
-			stmt.executeUpdate(sql);
-			stmt.close();
+				Statement stmt = c.createStatement();
+				String sql = "insert into CustomTables (name) values (\"" + tableName  + "\");";
+				stmt.executeUpdate(sql);
+				stmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -60,7 +60,7 @@ public class SQL {
 		Date d = new Date(time);
 		return d;
 	}
-
+	
 	public static void insertIntoDB(Pictures ps, String tableName) {
 		for (int i = 0; i < ps.getLength(); i++) {
 			Picture p = ps.getPicture(i);
@@ -74,7 +74,6 @@ public class SQL {
 				stmt.setLong(5, p.getFileSize());
 				stmt.executeUpdate();
 				stmt.close();
-
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -150,6 +149,48 @@ public class SQL {
 	
 	//Valle
 	
+	public static int getNumTables() {
+		try {
+			Statement stmt = c.createStatement();
+			String sql = "select count(name) as anzahl from CustomTables;";
+			ResultSet rs = stmt.executeQuery(sql);
+			int anzahl = rs.getInt("anzahl");
+			rs.close();
+			stmt.close();
+			return anzahl;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public static boolean checkTables(String tableName) {
+		try {
+			Statement stmt = c.createStatement();
+			String sql = "select name from CustomTables;";
+			ResultSet rs = stmt.executeQuery(sql);
+			int x = 0; // Laufvariable
+			while (rs.next()) {
+				String name = rs.getString("name");
+				if (tableName.equals(name)) {
+					x++;
+				}
+			}
+			if (x == 0) {
+				rs.close();
+				stmt.close();
+				return true;
+			} else {
+				rs.close();
+				stmt.close();
+				return false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	public static boolean existingTables(String tableName) {
 		try {
 			Statement stmt = c.createStatement();
@@ -187,10 +228,6 @@ public class SQL {
 			e.printStackTrace();
 		}
 		return null;
-	}
-	
-	public static void setTableName(String tableName, String s) {
-		tableName = s;
 	}
 
 }
