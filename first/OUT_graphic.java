@@ -9,6 +9,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
 public class OUT_graphic {
+	
+	static TextArea tables = new TextArea();
 
 	static void start_OUT_graphik(HBox hb) {
 		Font f = new Font(20);
@@ -50,7 +52,6 @@ public class OUT_graphic {
 
 		// rechte Seite
 		Label existingTable = new Label("Existing Tables:");
-		TextArea tables = new TextArea();
 		TextArea output = new TextArea();
 		output.setEditable(false);
 		tables.setEditable(false);
@@ -70,7 +71,6 @@ public class OUT_graphic {
 		OUTvb2.getChildren().addAll(existingTable, tables, output);
 		hb.getChildren().addAll(OUTvb1, OUTvb2);
 
-		Worker.writeTablesOut(tables);
 		
 //----------------------------------------------------------------------------------------------		
 		//Buttons

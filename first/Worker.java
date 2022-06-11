@@ -65,11 +65,15 @@ public class Worker extends Application {
 		arg0.show();
 	}
 
-	static void writeTablesOut(TextArea area) {
-		area.setText("");
+	static void writeTablesOutOnAllTabs(TextArea area1, TextArea area2, TextArea area3) {
+		area1.setText("");
+		area2.setText("");
+		area3.setText("");
 		ArrayList<String> as = SQL.getExistingTables();
 		for (String s : as) {
-			area.appendText(s + "\n");
+			area1.appendText(s + "\n");
+			area2.appendText(s + "\n");
+			area3.appendText(s + "\n");
 		}
 	}
 	

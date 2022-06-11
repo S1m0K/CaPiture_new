@@ -48,6 +48,9 @@ public class OUT {
 			String gesPath = path_fx + File.separator + dateiname_fx + ".csv";
 			File f = new File(gesPath);
 			PrintWriter writer = new PrintWriter(f);
+			String header = "parentPath, name, extension, lastModTime, fileSize\n";
+			writer.write(header);
+			writer.flush();
 			Pictures ps = SQL.selectAll(table_fx); // bekommt alle Pictures
 			for (Picture pic : ps.getPictures()) {
 				String parentPath = pic.getParentPath();

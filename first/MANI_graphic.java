@@ -8,6 +8,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
 public class MANI_graphic {
+	
+	static TextArea tables3 = new TextArea();
 
 	static void start_MANI_graphik(HBox hb) {
 		VBox MANIvb1 = new VBox(); // große vertikale Boxen von MANI
@@ -32,7 +34,6 @@ public class MANI_graphic {
 		Button restore_label = new Button("Restore to:");
 		TextArea restore_area = new TextArea();
 		Button delete = new Button("DELETE");
-		TextArea tables3 = new TextArea();
 		TextArea output3 = new TextArea();
 		delete.setMinSize(80, 40);
 		select_table_area.setMaxSize(150, 15);
@@ -69,7 +70,6 @@ public class MANI_graphic {
 		MANIvb2.getChildren().addAll(zeile1_rechts_MANI);
 		hb.getChildren().addAll(MANIvb1, MANIvb2);
 		
-		Worker.writeTablesOut(tables3);
 	}
 	
 }

@@ -8,6 +8,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
 public class IN_graphic {
+	
+	static TextArea tables2 = new TextArea();
 
 	static void start_IN_graphik(HBox hb) {
 		VBox INvb1 = new VBox(); // große vertikale Boxen von IN
@@ -32,7 +34,6 @@ public class IN_graphic {
 
 		// rechte Seite
 		Label existingTable2 = new Label("Existing Tables:");
-		TextArea tables2 = new TextArea();
 		TextArea output2 = new TextArea();
 		tables2.setEditable(false);
 		output2.setEditable(false);
@@ -48,7 +49,7 @@ public class IN_graphic {
 		INvb2.getChildren().addAll(existingTable2, tables2, output2);
 		hb.getChildren().addAll(INvb1, INvb2);
 
-		Worker.writeTablesOut(tables2);
+		Worker.writeTablesOutOnAllTabs(tables2, MANI_graphic.tables3, OUT_graphic.tables);
 		
 //----------------------------------------------------------------------------------------------		
 		//Buttons

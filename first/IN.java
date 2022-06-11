@@ -20,7 +20,7 @@ public class IN {
 		if (SQL.checkTables(tableName)) {
 			SQL.createPictureTable(tableName); // table wird erstellt
 			SQL.insertCustomTableTable(tableName, area); // name der table wird in CustomTable eingetragen
-			Worker.writeTablesOut(area); // CustomTables werden eusgelesen
+			Worker.writeTablesOutOnAllTabs(IN_graphic.tables2, MANI_graphic.tables3, OUT_graphic.tables); // CustomTables werden eusgelesen
 			PictureFileTree.getAllPicturesFrom(abWo); // speichert die Pics in eine ArrayList
 			SQL.insertIntoDB(PictureFileTree.createAndStorePictureObjects(), tableName); // insertiert die Pics in die DB
 		} else {
