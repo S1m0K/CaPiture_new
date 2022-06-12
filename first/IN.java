@@ -10,7 +10,7 @@ public class IN {
 	
 	static void setAbWo(String s) {
 		abWo = s;
-	}
+	} 
 	
 	static void setTableName(String s) {
 		tableName = s;
