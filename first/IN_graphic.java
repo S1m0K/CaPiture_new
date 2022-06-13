@@ -50,7 +50,7 @@ public class IN_graphic {
 		hb.getChildren().addAll(INvb1, INvb2);
 
 		Worker.writeTablesOutOnAllTabs(tables2, MANI_graphic.tables3, OUT_graphic.tables);
-		
+				
 //----------------------------------------------------------------------------------------------		
 		//Buttons
 		

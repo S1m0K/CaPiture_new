@@ -29,9 +29,9 @@ public class MANI_graphic {
 		Label existingTable3 = new Label("Existing Tables:");
 		Button select_table = new Button("Select Tabelle:");
 		TextArea select_table_area = new TextArea();
-		Button rename_label = new Button("Rename to:");
+		Button rename = new Button("Rename to:");
 		TextArea rename_area = new TextArea();
-		Button restore_label = new Button("Restore to:");
+		Button restore = new Button("Restore to:");
 		TextArea restore_area = new TextArea();
 		Button delete = new Button("DELETE");
 		TextArea output3 = new TextArea();
@@ -42,8 +42,8 @@ public class MANI_graphic {
 		tables3.setMaxSize(500, 250);
 		output3.setMaxSize(500, 50);
 		select_table.setFont(f);
-		rename_label.setFont(f);
-		restore_label.setFont(f);
+		rename.setFont(f);
+		restore.setFont(f);
 		existingTable3.setFont(f);
 		tables3.setEditable(false);
 		output3.setEditable(false);
@@ -57,8 +57,8 @@ public class MANI_graphic {
 //		img.setFitHeight(350);
 
 		zeile1_links_MANI.getChildren().addAll(select_table, select_table_area);
-		zeile2_links_MANI.getChildren().addAll(rename_label, rename_area);
-		zeile3_links_MANI.getChildren().addAll(restore_label, restore_area);
+		zeile2_links_MANI.getChildren().addAll(rename, rename_area);
+		zeile3_links_MANI.getChildren().addAll(restore, restore_area);
 		zeile4_links_MANI.getChildren().add(delete);
 		zeile5_links_MANI.getChildren().add(existingTable3);
 		zeile6_links_MANI.getChildren().add(tables3);
@@ -69,6 +69,26 @@ public class MANI_graphic {
 		MANIvb1.getChildren().addAll(zeile1_links_MANI, zeile2_links_MANI, zeile3_links_MANI, zeile4_links_MANI, zeile5_links_MANI, zeile6_links_MANI, zeile7_links_MANI);
 		MANIvb2.getChildren().addAll(zeile1_rechts_MANI);
 		hb.getChildren().addAll(MANIvb1, MANIvb2);
+		
+		static void showPic(Picture pic) {
+			
+		}
+
+//----------------------------------------------------------------------------------------------		
+		//Buttons
+
+		
+		select_table.setOnAction(e -> {
+			
+		});
+		
+		rename.setOnAction(e -> {
+			renameAction();
+		});
+		
+		restore.setOnAction(e -> {
+			
+		});
 		
 	}
 	

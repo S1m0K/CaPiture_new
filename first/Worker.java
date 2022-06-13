@@ -17,8 +17,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Worker extends Application {
+	
 
-	//private Pictures ps;
+	private Pictures ps;
 
 	static String url = "jdbc:mysql://localhost:3306/CaPiture";
 	static String user = "vahoertnagl";
