@@ -44,10 +44,12 @@ public class SQL {
 			Statement stmt = c.createStatement();
 			String sql = "drop table if exists " + tableName + ";";
 			stmt.executeUpdate(sql);
+			stmt.close();
+			Statement stmt2 = c.createStatement();
 			sql = "create table " + tableName
 					+ "(PID int primary key auto_increment, parentPath varchar(255), name varchar(255),datum date, ext varchar(10), fileSize bigint);";
-			stmt.executeUpdate(sql);
-			stmt.close();
+			stmt2.executeUpdate(sql);
+			stmt2.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
