@@ -21,6 +21,14 @@ public class SQL {
 		}
 		return null;
 	}
+	
+	public static void closeConn() {
+		try {
+			c.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 	private static void setAutoCommit(Connection c, boolean ToF) {
 		try {

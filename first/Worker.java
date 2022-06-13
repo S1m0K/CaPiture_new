@@ -28,6 +28,7 @@ public class Worker extends Application {
 		
 			SQL.init(url, user, pass);
 			launch(args);
+			SQL.closeConn();
 	}
 
 	@Override
